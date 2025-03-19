@@ -37,3 +37,15 @@ cacheSolve <- function(x, ...) {
 	x$setInverse(inv)
 	inv #returning the data.
 }
+
+# Create a matrix
+my_matrix <- matrix(c(2, 2, 1, 3), nrow = 2, ncol = 2)
+
+# Create a special matrix object
+cached_matrix <- makeCacheMatrix(my_matrix)
+
+# Compute the inverse (first time, so it calculates it)
+cacheSolve(cached_matrix)
+
+# Compute the inverse again (this time, it fetches from cache)
+cacheSolve(cached_matrix)
